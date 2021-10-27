@@ -83,4 +83,4 @@ prev.addEventListener("click",
         document.querySelector(".item.active").classList.remove("active");
         document.getElementsByClassName("item")[activePosition].classList.add("active"); 
     }
-);
+); 
