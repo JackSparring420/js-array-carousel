@@ -60,13 +60,21 @@ document.getElementsByClassName("item")[0].classList.add("active");
 // cambio img con il click
 const next = document.querySelector(".next");
 
+
+// per registrare il click
 let activePosition = 0;
 
-activePosition
-
+// dico al pulsanre next come deve comportarsi
 next.addEventListener("click",
     function() {
-        ++activePosition;
+
+        if(activePosition < items.length -1){
+            activePosition = activePosition +1;
+        } else {
+            activePosition = 0;
+        }
+
+
         document.querySelector(".thumb.active").classList.remove("active");
         document.getElementsByClassName("thumb")[activePosition].classList.add("active");
         document.querySelector(".item.active").classList.remove("active");
@@ -74,10 +82,17 @@ next.addEventListener("click",
     }
 );
 
+// dico al pulsanre prev come deve comportarsi
 const prev = document.querySelector(".prev");
 prev.addEventListener("click",
     function() {
-        --activePosition;
+
+        if(activePosition === 0){
+            activePosition = items.length -1;
+        } else {
+            --activePosition;
+        }
+
         document.querySelector(".thumb.active").classList.remove("active");
         document.getElementsByClassName("thumb")[activePosition].classList.add("active");
         document.querySelector(".item.active").classList.remove("active");
